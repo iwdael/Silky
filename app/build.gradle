@@ -1,0 +1,29 @@
+apply from: './../config.gradle'
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk buildConfig.compileSdkVersion
+    defaultConfig {
+        applicationId "com.iwdael.fetcher.example"
+        minSdk buildConfig.minSdkVersion
+        targetSdk buildConfig.targetSdkVersion
+        versionCode buildConfig.versionCode
+        versionName buildConfig.versionName
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+dependencies {
+    implementation dep.appcompat
+    implementation dep.room
+    implementation project(path: ':silky')
+    implementation 'com.google.android.material:material:1.4.+'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+}
